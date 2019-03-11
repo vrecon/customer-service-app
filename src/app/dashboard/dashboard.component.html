@@ -1,0 +1,75 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="description">
+        <h2>Customer</h2>
+      </div>
+      <div class="fresh-table">
+        <div class="bootstrap-table">
+          <div class="fixed-table-toolbar">
+            <div class="bars pull-left">
+            </div>
+            <div class="pull-right search">
+              <input class="form-control" [(ngModel)]="query" type="text" placeholder="Search"></div>
+          </div>
+          <div class="fixed-table-container" style="padding-bottom: 0px;">
+            <div class="fixed-table-header" style="display: none;">
+              <table></table>
+            </div>
+            <div class="fixed-table-body">
+              <table id="fresh-table" class="table table-hover table-striped">
+                <thead>
+                <tr>
+                  <th style="" data-field="id">
+                    <div class="th-inner ">ID</div>
+                    <div class="fht-cell"></div>
+                  </th>
+                  <th style="" data-field="name">
+                    <div class="th-inner  ">Name</div>
+                    <div class="fht-cell"></div>
+                  </th>
+                  <th style="" data-field="salary">
+                    <div class="th-inner ">Date of Birth</div>
+                    <div class="fht-cell"></div>
+                  </th>
+                  <th style="" data-field="country">
+                    <div class="th-inner  ">Phone Number</div>
+                    <div class="fht-cell"></div>
+                  </th>
+                  <th style="" data-field="reactive">
+                    <div class="th-inner  ">Reactive</div>
+                    <div class="fht-cell"></div>
+                  </th>
+                  <th style="" data-field="country">
+                    <div class="th-inner  ">template</div>
+                    <div class="fht-cell"></div>
+                  </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let customer of customers | search:'customerName,dateOfBirth':query; let i = index" [attr.data-index]="i" >
+                  <td style="">{{customer.customerId}}</td>
+                  <td style="">{{customer.customerName}}</td>
+                  <td style="">{{customer.dateofBirth}}</td>
+                  <td style="">{{customer.phoneNumber}}</td>
+                  <td style=""><a routerLink="/reactive/{{customer.customerId}}">open</a></td>
+                  <td style=""><a routerLink="/templatedriven/{{customer.customerId}}">open</a></td>
+                </tr>
+                <tr>
+                  <td style=""></td>
+                  <td style=""></td>
+                  <td style=""></td>
+                  <td style=""></td>
+                  <td style=""></td>
+                  <td style=""><a routerLink="/templatedriven/new">new</a></td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
