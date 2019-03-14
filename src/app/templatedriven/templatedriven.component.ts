@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {CustomerService} from '../customer.service';
 import {Customer} from '../customer.model';
 import {ActivatedRoute, Route, Router} from '@angular/router';
@@ -19,8 +19,8 @@ export class TemplatedrivenComponent implements OnInit {
     if(!this.id){
       this.customer = new Customer();
     }else {
-      this.customerService.get(this.id).subscribe(customer => {
-        this.customer = customer;
+      this.customerService.get(this.id).subscribe(res => {
+        this.customer = res;
       });
     }
   }

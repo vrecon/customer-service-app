@@ -1,2 +1,37 @@
+<div class="container" *ngIf="customer">
+  <h1>Reactive Form</h1>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text"  class="form-control" formControlName="customerName" [ngClass]="{ 'is-invalid': submitted && f.customerName.errors }">
+      <div *ngIf="submitted && f.customerName.errors" class="invalid-feedback">
+        <div *ngIf="f.customerName.errors.required">Name is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Date of Birth</label>
+      <input type="date" class="form-control" formControlName="dateofBirth" [ngClass]="{ 'is-invalid': submitted && f.dateofBirth.errors }"/>
+      <div *ngIf="submitted && f.dateofBirth.errors" class="invalid-feedback">
+        <div *ngIf="f.dateofBirth.errors.required">Date of birth is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Phone number</label>
+      <input type="text" class="form-control" formControlName="phoneNumber" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }">
+      <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
+        <div *ngIf="f.phoneNumber.errors.required">Phonenumber is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Select</label>
+      <select>
+        <option>1</option>
+        <option>2</option>
+      </select>
+    </div>
 
 
+    <button type="button" (click)="cancel()" class="btn btn-danger">Cancel</button>
+    <button type="submit" class="btn btn-success float-right">Submit</button>
+  </form>
+</div>
